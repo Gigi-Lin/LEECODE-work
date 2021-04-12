@@ -1,0 +1,16 @@
+#include <stdio.h>
+int* twoSum(int* nums, int numsSize, int target, int* returnSize){
+int x,y;
+*returnSize=2;
+int* returnValue=calloc(2,sizeof(int));
+    for(x=0;x<numsSize-1;x++){
+        for(y=x+1;y<numsSize;y++){
+        if(nums[x]+nums[y]==target){
+        returnValue[0]=x;
+        returnValue[1]=y;
+        break;
+        }
+	}
+} 
+return returnValue;
+}
