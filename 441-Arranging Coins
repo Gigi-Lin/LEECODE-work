@@ -1,0 +1,16 @@
+int arrangeCoins(int n){
+int i=1;
+long sum=0;
+
+if(n<=0||n>INT_MAX) return NULL;    
+    while(sum<n){
+        sum+=i;
+        if(sum>n){
+            return i-1;
+        }else if(sum==n){
+            return i;
+        }
+        i++;
+    }
+    return i;
+}
