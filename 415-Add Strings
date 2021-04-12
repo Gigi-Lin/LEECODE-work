@@ -1,0 +1,73 @@
+char * addStrings(char * num1, char * num2){
+    int len1=strlen(num1);
+    int len2=strlen(num2);
+    int longer=(len1>len2?len1:len2);
+    char *mix=calloc(longer+2,sizeof(char));
+    int i=len1-1,j=len2-1,sum=0,k=0,carry=0;
+    
+    while(i>=0&&j>=0){
+        sum=num1[i--]+num2[j--]-2*'0'+carry;
+        carry=sum/10;
+        mix[k++]=sum%10+'0';
+    }
+    
+    while(i>=0){
+        sum=num1[i--]-'0'+carry;
+        carry=sum/10;
+        mix[k++]=sum%10+'0';
+    }
+    
+     while(j>=0){
+        sum=num2[j--]-'0'+carry;
+        carry=sum/10;
+        mix[k++]=sum%10+'0';
+    }
+    
+    if(carry){
+        mix[k++]=1+'0';
+    }
+    mix[k]='\0';
+    
+    i=0,j=k-1;
+    char temp;
+    while(i<j){
+        temp=mix[i];
+        mix[i]=mix[j];
+        mix[j]=temp;
+        i++;
+        j--;
+    }
+    return mix;
+}
+    
+    
+//  int len1=strlen(num1);
+//  int len2=strlen(num2);
+//  int arr1[len1];
+//  int arr2[len2];
+  
+//  long long int a=0,b=0;
+//  long long int longer=len1,i,j;
+//  if(len2>len1) longer=len2;
+  
+    
+//        arr1[i]=num1[i]-48;
+//        a=a*10+arr1[i];
+//  
+//    for(j=0;j<len2;j++){
+//        arr2[j]=num2[j]-48;
+//        b=b*10+arr2[j];
+//    }
+   
+//    long long int plus=a+b;
+//    if(plus/(long)pow(10,longer)==1) longer=longer+1;
+    
+//    char mix[longer+1];
+//    for(i=longer-1;i>=0;i--){
+//        mix[i]=plus%10+48;
+//        plus=plus/10;
+//}
+//    mix[longer]='\0';
+//    char *ptr=mix;
+//    return ptr;
+//}
